@@ -1,8 +1,74 @@
+"use client"
+
+import { useState } from "react"
+import { toast } from "sonner"
+import { TickCircle, CloseCircle } from "iconsax-reactjs"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import FinancialCards from "./FinancialCards"
+import { CustomToast } from "./ui/custom-toast"
 
 const HeroSide = () => {
+    const [email, setEmail] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        
+        if (!email.trim()) {
+            toast.error(
+                <CustomToast 
+                    type="error" 
+                    title="Email Required" 
+                    description="Please enter your email address to join the waitlist."
+                />
+            )
+            return
+        }
+
+        setIsLoading(true)
+
+        try {
+            const response = await fetch("/api/waitlist", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: email.trim() }),
+            })
+
+            const data = await response.json()
+
+            if (response.ok) {
+                toast.success(
+                    <CustomToast 
+                        type="success" 
+                        title="Welcome to Teleceipt!" 
+                        description={data.message}
+                    />
+                )
+                setEmail("")
+            } else {
+                toast.error(
+                    <CustomToast 
+                        type="error" 
+                        title="Failed to join waitlist" 
+                        description={data.error}
+                    />
+                )
+            }
+        } catch (error) {
+            toast.error(
+                <CustomToast 
+                    type="error" 
+                    title="Connection Error" 
+                    description="Something went wrong. Please try again."
+                />
+            )
+        } finally {
+            setIsLoading(false)
+        }
+    }
     return (
         <section className="pt-32 px-5 container mx-auto bg-[#229fd922] rounded-4xl">
             <div
@@ -36,25 +102,30 @@ const HeroSide = () => {
                 <p className="text-muted-foreground mt-7 max-w-xl text-xl tracking-tight">
                     Transform your business with modern receipt and invoice generation. Seamlessly integrated with Telegram for ultimate convenience.
                 </p>
-                <div
-                    className="mt-10 flex w-full max-w-xl items-center justify-center rounded-full border p-1 bg-white"
-                >
-                    <input
-                        data-slot="input"
-                        className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 min-w-0 rounded-full border bg-transparent px-3 py-1 text-base transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive text-xl! w-full border-none pl-5 tracking-tight shadow-none outline-none focus-visible:outline-none focus-visible:ring-0"
-                        placeholder="Enter Your Email"
-                    />
-                    <Button
-                        className="button-7 rounded-full px-6 py-2 text-white font-semibold text-base shadow-lg"
-                        style={{
-                            background: "linear-gradient(180deg, #37AEE2 0%, #229ED9 100%)",
-                            border: "1px solid #0095ff",
-                            boxShadow: "0 2px 8px 0 rgba(0, 149, 255, 0.15), rgba(255,255,255,.4) 0 1px 0 0 inset"
-                        }}
-                    >
-                        Join waitlist
-                    </Button>
-                </div>
+                <form onSubmit={handleSubmit} className="mt-10 w-full max-w-xl">
+                    <div className="flex w-full items-center justify-center rounded-full border p-1 bg-white">
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            disabled={isLoading}
+                            className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 min-w-0 rounded-full border bg-transparent px-3 py-1 text-base transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive text-xl! w-full border-none pl-5 tracking-tight shadow-none outline-none focus-visible:outline-none focus-visible:ring-0"
+                            placeholder="Enter Your Email"
+                        />
+                        <Button
+                            type="submit"
+                            disabled={isLoading}
+                            className="button-7 rounded-full px-6 py-2 text-white font-semibold text-base shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                            style={{
+                                background: "linear-gradient(180deg, #37AEE2 0%, #229ED9 100%)",
+                                border: "1px solid #0095ff",
+                                boxShadow: "0 2px 8px 0 rgba(0, 149, 255, 0.15), rgba(255,255,255,.4) 0 1px 0 0 inset"
+                            }}
+                        >
+                            {isLoading ? "Joining..." : "Join waitlist"}
+                        </Button>
+                    </div>
+                </form>
                 <div
                     className=" relative mt-12 flex h-[450px] w-screen justify-center overflow-hidden"
                 >
@@ -97,7 +168,5 @@ const HeroSide = () => {
 
     )
 }
-
-
 
 export default HeroSide

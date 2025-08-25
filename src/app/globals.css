@@ -212,3 +212,44 @@ button {
   border: "1px solid #0095ff";
   box-shadow: "0 2px 8px 0 rgba(0, 149, 255, 0.15), rgba(255,255,255,.4) 0 1px 0 0 inset";
 }
+
+/* Override Sonner default styles */
+/* [data-sonner-toaster] {
+  --normal-bg: transparent !important;
+  --normal-border: transparent !important;
+  --normal-text: transparent !important;
+  --success-bg: transparent !important;
+  --success-border: transparent !important;
+  --success-text: transparent !important;
+  --error-bg: transparent !important;
+  --error-border: transparent !important;
+  --error-text: transparent !important;
+}
+
+[data-sonner-toast] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+[data-sonner-toast] [data-description] {
+  display: none !important;
+}
+
+[data-sonner-toast] [data-title] {
+  display: none !important;
+}
+
+[data-sonner-toast] [data-close-button] {
+  display: none !important;
+}
+
+[data-sonner-toast] [data-action-button] {
+  display: none !important;
+}
+
+[data-sonner-toast] [data-cancel -button] {
+  display: none !important;
+}*/
