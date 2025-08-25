@@ -20,6 +20,11 @@ const KeyFeatures = () => {
             title: "Payment Tracking",
             description: "Automatically track payments and update invoice statuses in real-time. Receive instant notifications when payments are received, and maintain a complete audit trail of all transactions for better financial management and reporting.",
             image: "/images/payments.png"
+        },
+        {
+            title: "Business Insights",
+            description: "Gain valuable insights into your business performance with comprehensive analytics and reporting. Track revenue trends, identify your top customers, monitor payment patterns, and make data-driven decisions to optimize your business growth and profitability.",
+            image: "/images/payments.png"
         }
     ]
 
