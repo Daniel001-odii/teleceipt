@@ -4,7 +4,7 @@ import FinancialCards from "./FinancialCards"
 
 const HeroSide = () => {
     return (
-        <section className=" py-32 container mx-auto">
+        <section className="pt-32 px-5 container mx-auto bg-[#229fd922] rounded-4xl">
             <div
                 className="container flex flex-col items-center justify-center gap-4 text-center"
             >
@@ -31,25 +31,19 @@ const HeroSide = () => {
                 <h1
                     className="font-playfair text-foreground max-w-xl text-4xl tracking-tighter md:text-7xl"
                 >
-                    Generate Receipts & Invoices Instantly via Telegram
+                    Generate Receipts & Invoices <span className=" italic underline">Instantly</span> via Telegram
                 </h1>
                 <p className="text-muted-foreground mt-7 max-w-xl text-xl tracking-tight">
                     Transform your business with modern receipt and invoice generation. Seamlessly integrated with Telegram for ultimate convenience.
                 </p>
                 <div
-                    className="mt-10 flex w-full max-w-xl items-center justify-center rounded-full border p-1"
+                    className="mt-10 flex w-full max-w-xl items-center justify-center rounded-full border p-1 bg-white"
                 >
                     <input
                         data-slot="input"
                         className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 min-w-0 rounded-full border bg-transparent px-3 py-1 text-base transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive text-xl! w-full border-none pl-5 tracking-tight shadow-none outline-none focus-visible:outline-none focus-visible:ring-0"
                         placeholder="Enter Your Email"
                     />
-                    {/*  <button
-                        data-slot="button"
-                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([className*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary shadow-xs hover:bg-primary/90 h-9 has-[&gt;svg]:px-3 text-background rounded-full px-10 py-7 text-lg transition-all ease-in-out hover:px-12"
-                    >
-                        Sign Up
-                    </button> */}
                     <Button
                         className="button-7 rounded-full px-6 py-2 text-white font-semibold text-base shadow-lg"
                         style={{
@@ -65,15 +59,15 @@ const HeroSide = () => {
                     className=" relative mt-12 flex h-[450px] w-screen justify-center overflow-hidden"
                 >
                     <div
-                        className="mr-58 -rotate-18 absolute mx-auto mt-6 hidden h-[850px] w-[400px] items-center justify-center rounded-[75px] bg-black md:mt-12 md:flex md:h-[840px] md:w-[400px]"
+                        className="absolute mx-auto mt-6 w-full items-center justify-center rounded-[75px] bg-blac md:mt-12 md:flex md:h-[840px] md:w-[400px]"
 
                     >
                         <img
-                            className="z-2 absolute scale-105 object-cover"
+                            className="z-2 absolute scale-150 object-cover"
                             alt="Gold phone frame"
-                            src="/images/phone-5.png"
+                            src="/images/Telegram iOS 0-left.png"
                         />
-                        <div className="h-full w-full">
+                        {/* <div className="h-full w-full">
                             <div className="mt-20 flex justify-between px-0">
                                 <h1
                                     className="text-background flex items-end gap-2 px-12 text-5xl font-semibold tracking-tight md:text-6xl"
@@ -95,40 +89,7 @@ const HeroSide = () => {
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-                    <div
-                        className="bg-background md:ml-58 md:rotate-20 absolute mx-auto mt-6 flex h-[850px] w-[400px] items-center justify-center rounded-[75px] md:mt-24 md:h-[840px] md:w-[400px]"
-
-                    >
-                        <img
-                            className="z-2 absolute scale-105 object-cover"
-                            alt="Gold phone frame"
-                            src="/images/phone-5.png"
-                        />
-                        <div className="h-full w-full">
-                            <div className="mt-20 flex justify-between px-0">
-                                <h1
-                                    className="text-foreground flex items-end gap-2 px-12 text-5xl font-semibold tracking-tight md:text-6xl"
-                                >
-                                    Tue
-                                    <div className="mb-2 size-3 rounded-full bg-red-500 md:size-5"></div>
-                                </h1>
-                                <div className="mr-8 mt-2 flex flex-col items-end">
-                                    <p
-                                        className="text-muted-foreground text-lg tracking-tighter md:text-xl"
-                                    >
-                                        Feburary 14
-                                    </p>
-                                    <p
-                                        className="text-muted-foreground/50 -mt-1 text-xl font-semibold tracking-tighter md:text-2xl"
-                                    >
-                                        2025
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
