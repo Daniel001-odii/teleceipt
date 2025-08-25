@@ -6,21 +6,21 @@ const KeyFeatures = () => {
             number: "01",
             title: "categorization that makes it easy to find event tickets",
             description: "ticket makes it easy for you to find concert tickets and also categorize them properly so that users can easily use them",
-            image: "/images/phone-5.png",
+            image: "/images/phone-6.png",
             imagePosition: "left"
         },
         {
             number: "02",
             title: "the ease of buying tickets can provide a different experience",
             description: "ticket makes it easy for you to find concert tickets and also categorize them properly so that users can easily use them",
-            image: "/images/phone-5.png",
+            image: "/images/phone-6.png",
             imagePosition: "right"
         },
         {
             number: "03",
             title: "choosing a seat can now be done by looking at the actual map",
             description: "ticket makes it easy for you to find concert tickets and also categorize them properly so that users can easily use them",
-            image: "/images/phone-5.png",
+            image: "/images/phone-6.png",
             imagePosition: "left"
         }
     ]
@@ -63,14 +63,14 @@ const KeyFeatures = () => {
                                         {feature.description}
                                     </p>
                                     <Button disabled
-                        className="button-7 rounded-full px-6 py-2 text-white font-semibold text-base shadow-lg"
-                        style={{
-                            background: "linear-gradient(180deg, #37AEE2 0%, #229ED9 100%)",
-                            border: "1px solid #0095ff",
-                            boxShadow: "0 2px 8px 0 rgba(0, 149, 255, 0.15), rgba(255,255,255,.4) 0 1px 0 0 inset"
-                        }}
-                    >Get Started
-                    </Button>
+                                        className="button-7 rounded-full px-6 py-2 text-white font-semibold text-base shadow-lg"
+                                        style={{
+                                            background: "linear-gradient(180deg, #37AEE2 0%, #229ED9 100%)",
+                                            border: "1px solid #0095ff",
+                                            boxShadow: "0 2px 8px 0 rgba(0, 149, 255, 0.15), rgba(255,255,255,.4) 0 1px 0 0 inset"
+                                        }}
+                                    >Get Started
+                                    </Button>
                                 </div>
                             </div>
                         </div>

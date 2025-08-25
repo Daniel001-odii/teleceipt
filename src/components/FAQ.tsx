@@ -39,7 +39,7 @@ const FAQ = () => {
 
     return (
         <div className="py-20 ">
-            <div className="container mx-auto px-8">
+            <div className="container mx-auto md:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl mb-4 font-bold">
@@ -51,7 +51,7 @@ const FAQ = () => {
                 </div>
 
                 {/* FAQ Items */}
-                <div className="max-w-4xl mx-auto space-y-4">
+                <div className="max-w-5xl mx-auto space-y-4">
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
