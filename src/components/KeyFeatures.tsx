@@ -1,70 +1,79 @@
-import SvgImageOne from "./SvgImageOne"
-import SvgImageThree from "./SvgImageThree"
-import SvgImageTwo from "./SvgImageTwo"
 import { Button } from "./ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 
 const KeyFeatures = () => {
     const features = [
         {
-            title: "Telegram Integration",
-            description: "Generate receipts and invoices directly from your Telegram chats. Our bot handles everything from customer information to payment tracking, making it easier than ever to manage your business communications and financial records in one place.",
-            image: "/images/telegram.png"
+            number: "01",
+            title: "categorization that makes it easy to find event tickets",
+            description: "ticket makes it easy for you to find concert tickets and also categorize them properly so that users can easily use them",
+            image: "/images/phone-5.png",
+            imagePosition: "left"
         },
         {
-            title: "Professional Templates",
-            description: "Create stunning, professional receipts and invoices with our customizable templates. Add your business logo, customize colors, and include all necessary fields to maintain your brand identity while ensuring compliance with tax regulations.",
-            image: "/images/templates.png"
+            number: "02",
+            title: "the ease of buying tickets can provide a different experience",
+            description: "ticket makes it easy for you to find concert tickets and also categorize them properly so that users can easily use them",
+            image: "/images/phone-5.png",
+            imagePosition: "right"
         },
         {
-            title: "Payment Tracking",
-            description: "Automatically track payments and update invoice statuses in real-time. Receive instant notifications when payments are received, and maintain a complete audit trail of all transactions for better financial management and reporting.",
-            image: "/images/payments.png"
-        },
-        {
-            title: "Business Insights",
-            description: "Gain valuable insights into your business performance with comprehensive analytics and reporting. Track revenue trends, identify your top customers, monitor payment patterns, and make data-driven decisions to optimize your business growth and profitability.",
-            image: "/images/payments.png"
+            number: "03",
+            title: "choosing a seat can now be done by looking at the actual map",
+            description: "ticket makes it easy for you to find concert tickets and also categorize them properly so that users can easily use them",
+            image: "/images/phone-5.png",
+            imagePosition: "left"
         }
     ]
 
     return (
-        <div className="py-20">
+        <div className="py-20 bg-white">
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl mb-4">
                     Why Choose Teleceipt?
                 </h2>
             </div>
 
-            <div className="container mx-auto px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="container mx-auto px-8 mt-24">
+                <div className="space-y-24">
                     {features.map((feature, index) => (
-                        <Card key={index} className="overflow-hidden border border-[rgba(255,255,255,0.25)] backdrop-blur-sm  hover:shadow-xl transition-all duration-300 bg-white">
-                            <div className="">
-                                {/* Image at the top */}
-                                <div className="mb-3 flex justify-center">
-                                    <img
-                                        src={feature.image}
-                                        alt={feature.title}
-                                        className="rounded-2xl border border-[rgba(255,255,255,0.25)] backdrop-blur-sm w-full h-70 object-cover"
-                                        style={{
-                                            borderWidth: "1.5px",
-                                            background: "rgba(255,255,255,0.10)",
-                                        }}
-                                    />
-                                </div>
-                                
-                                {/* Content below image */}
-                                <div className="px-6 p-3">
-                                    <h3 className="text-2xl font-semibold text-left">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-muted-foreground leading-relaxed text-left">
-                                        {feature.description}
-                                    </p>
+                        <div key={index} className="flex flex-col lg:flex-row items-center gap-12">
+                            {/* Mobile Phone Image */}
+                            <div className={`flex-1 ${feature.imagePosition === 'right' ? 'lg:order-2' : 'lg:order-1'}`}>
+                                <div className="relative flex justify-center items-start max-h-[400px] overflow-hidden">
+                                    {/* Light blue background */}
+                                    <div className="absolute inset-0 bg-blue-50 rounded-3xl transform rotate-3 z-0"></div>
+                                    <div className="w-full h-auto overflow-hidden rounded-2xl z-10 relative">
+                                        <img
+                                            src={feature.image}
+                                            alt={`Feature ${feature.number}`}
+                                            className="w-full h-auto object-cover"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </Card>
+
+                            {/* Content */}
+                            <div className={`flex-1 ${feature.imagePosition === 'right' ? 'lg:order-1' : 'lg:order-2'}`}>
+                                <div className="max-w-md">
+                                    <span className="text-3xl md:text-4xl font-bold text-[#229ED9]">/{feature.number} </span>
+                                    <h3 className="text-3xl md:text-4xl text-gray-900 mb-6 leading-tight">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                    <Button disabled
+                        className="button-7 rounded-full px-6 py-2 text-white font-semibold text-base shadow-lg"
+                        style={{
+                            background: "linear-gradient(180deg, #37AEE2 0%, #229ED9 100%)",
+                            border: "1px solid #0095ff",
+                            boxShadow: "0 2px 8px 0 rgba(0, 149, 255, 0.15), rgba(255,255,255,.4) 0 1px 0 0 inset"
+                        }}
+                    >Get Started
+                    </Button>
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

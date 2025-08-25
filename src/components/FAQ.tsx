@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "./ui/button"
-
+import { ArrowDown2 } from 'iconsax-reactjs'
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null)
 
@@ -59,26 +59,15 @@ const FAQ = () => {
                         >
                             <button
                                 onClick={() => toggleFAQ(index)}
-                                className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                                className="w-full px-8 py-3 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                             >
-                                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                                <h3 className="text-lg text-gray-900 pr-4">
                                     {faq.question}
                                 </h3>
                                 <div className="flex-shrink-0">
-                                    <svg
-                                        className={`w-6 h-6 text-[#0088cc] transition-transform ${openIndex === index ? 'rotate-180' : ''
-                                            }`}
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
+                                    <div className={`w-6 h-6 text-[#0088cc] transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>
+                                        <ArrowDown2 />
+                                    </div>
                                 </div>
                             </button>
 

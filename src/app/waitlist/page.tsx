@@ -9,7 +9,7 @@ export default function () {
     return (
         <div className="min-h-screen bg-white p-5">
             {/* HEADER */}
-            <AppHeader/>
+            {/* <AppHeader/> */}
 
             {/* HERO */}
             <HeroSide/>
