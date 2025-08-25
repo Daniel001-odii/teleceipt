@@ -63,7 +63,7 @@ const HeroSide = () => {
 
                     >
                         <img
-                            className="z-2 absolute scale-150 object-cover"
+                            className="z-2 absolute md:scale-150 object-cover"
                             alt="Gold phone frame"
                             src="/images/Telegram iOS 0-left.png"
                         />
