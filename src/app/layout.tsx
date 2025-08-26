@@ -57,20 +57,21 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "https://raw.githubusercontent.com/Daniel001-odii/teleceipt/refs/heads/main/public/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Teleceipt preview",
       },
     ],
   },
+  
   twitter: {
     card: "summary_large_image",
     title: "Teleceipt — Smart Telegram Receipts",
     description:
       "Generate beautiful, compliant receipts from Telegram payments. Save, manage, and share receipts instantly.",
     creator: "@teleceipt",
-    images: ["/images/og-image.png"],
+    images: ["https://raw.githubusercontent.com/Daniel001-odii/teleceipt/refs/heads/main/public/images/og-image.png"],
   },
   icons: {
     icon: "/favicon.ico",
