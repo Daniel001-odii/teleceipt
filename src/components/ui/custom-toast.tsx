@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
-import { Check, Info, AlertTriangle } from "lucide-react";
+import { Check, Info, AlertTriangle, Link2, X as XIcon } from "lucide-react";
 
 interface CustomToastProps {
   title: string;
   description: string;
   action?: () => void;
   actionLabel?: string;
-  variant?: "success" | "error" | "info";
+  variant?: "success" | "error" | "info" | "warning";
+  onClose?: () => void;
 }
 
 export function CustomToast({
@@ -15,69 +16,93 @@ export function CustomToast({
   action,
   actionLabel,
   variant = "success",
+  onClose,
 }: CustomToastProps) {
-  let bgColor, borderColor, gradientFrom, gradientTo, borderIconColor, icon;
-  
+  let bgColor, gradientFrom, gradientTo, iconBgShadow, icon, borderColor;
+
   if (variant === "success") {
-    bgColor = "bg-[#eafeed]";
-    borderColor = "border-[#0eec31]";
-    gradientFrom = "from-[#69e87a]";
-    gradientTo = "to-[#0cca26]";
-    borderIconColor = "border-[#3de154]";
-    icon = <Check className="w-4 h-4 text-white" />;
+    bgColor = "bg-[#d9f7e3]"; // soft green
+    gradientFrom = "from-[#4cd37a]";
+    gradientTo = "to-[#19b84c]";
+    iconBgShadow = "shadow-[0_8px_16px_0_rgba(25,184,76,0.25)]";
+    icon = <Check className="w-5 h-5 text-white" />;
+    borderColor = "border-[#b6f2ce]"; // light green
   } else if (variant === "error") {
-    bgColor = "bg-red-50";
-    borderColor = "border-red-200";
-    gradientFrom = "from-red-300";
-    gradientTo = "to-red-500";
-    borderIconColor = "border-red-300";
-    icon = <AlertTriangle className="w-4 h-4 text-white" />;
-  } else { // info
-    bgColor = "bg-blue-50";
-    borderColor = "border-blue-200";
-    gradientFrom = "from-blue-300";
-    gradientTo = "to-blue-500";
-    borderIconColor = "border-blue-300";
-    icon = <Info className="w-4 h-4 text-white" />;
+    bgColor = "bg-[#ffd7d7]"; // soft red
+    gradientFrom = "from-[#ff6b6b]";
+    gradientTo = "to-[#ff3b30]";
+    iconBgShadow = "shadow-[0_8px_16px_0_rgba(255,59,48,0.25)]";
+    icon = <XIcon className="w-5 h-5 text-white" />;
+    borderColor = "border-[#ffebeb]"; // light red
+  } else if (variant === "warning") {
+    bgColor = "bg-[#ffeaa3]"; // soft yellow
+    gradientFrom = "from-[#ffcc4d]";
+    gradientTo = "to-[#ffb300]";
+    iconBgShadow = "shadow-[0_8px_16px_0_rgba(255,179,0,0.25)]";
+    icon = <AlertTriangle className="w-5 h-5 text-white" />;
+    borderColor = "border-[#ffb300]";
+  } else {
+    // info (blue)
+    bgColor = "bg-[#cfe1ff]";
+    gradientFrom = "from-[#5aa5ff]";
+    gradientTo = "to-[#2f80ff]";
+    iconBgShadow = "shadow-[0_8px_16px_0_rgba(47,128,255,0.25)]";
+    icon = <Link2 className="w-5 h-5 text-white" />;
+    borderColor = "border-[#2f80ff]";
   }
 
   return (
-    <div className={cn(
-      "w-full md:w-auto p-4",
-      bgColor,
-      "rounded-2xl border",
-      borderColor,
-      "backdrop-blur-2xl flex flex-col md:flex-row items-start md:items-center gap-3",
-      "shadow-lg relative"
-    )}>
-      <div className="flex items-start md:items-center gap-3 w-full">
-        <div className={cn(
-          "p-1 bg-gradient-to-b",
-          gradientFrom,
-          gradientTo,
-          "rounded-lg",
-          borderIconColor,
-          "flex-shrink-0"
-        )}>
+    <div
+      className={cn(
+        "fixed inset-0 z-50 flex items-center justify-center",
+        "w-full md:w-fit px-4 py-4 text-white",
+        bgColor,
+        "rounded-2xl flex items-center justify-between gap-4",
+        "shadow-md",
+        "border-2",
+        borderColor
+      )}
+    >
+      <div className="flex items-center gap-3 min-w-0">
+        <div
+          className={cn(
+            "grid place-items-center h-10 w-10 rounded-xl bg-gradient-to-b",
+            gradientFrom,
+            gradientTo,
+            iconBgShadow
+          )}
+        >
           {icon}
         </div>
-        <div className="flex flex-col gap-1">
-          <div className="text-[#001a4c] text-sm font-semibold font-['Satoshi Variable']">
+        <div className="min-w-0">
+          <div className="text-black/90 text-base font-semibold truncate">
             {title}
           </div>
-          <div className="text-[#334870] text-sm font-normal font-['Satoshi Variable']">
+          <div className="text-black/70 text-sm truncate">
             {description}
           </div>
         </div>
       </div>
-      {action && actionLabel && (
-        <button
-          onClick={action}
-          className="w-full md:w-auto mt-2 md:mt-0 px-3 py-2 bg-none rounded-full text-[#0c77f2] text-sm font-medium hover:bg-gray-50 transition-colors"
-        >
-          {actionLabel}
-        </button>
-      )}
+
+      <div className="flex items-center gap-2 shrink-0">
+        {action && actionLabel && (
+          <button
+            onClick={action}
+            className="px-3 py-2 rounded-full bg-white/60 text-black/70 text-sm font-medium hover:bg-white/80 transition-colors"
+          >
+            {actionLabel}
+          </button>
+        )}
+        {onClose && (
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="h-10 w-10 grid place-items-center rounded-xl bg-white text-black/70 shadow-[0_8px_16px_0_rgba(0,0,0,0.08)] hover:bg-white/90"
+          >
+            <XIcon className="h-5 w-5" />
+          </button>
+        )}
+      </div>
     </div>
   );
 }

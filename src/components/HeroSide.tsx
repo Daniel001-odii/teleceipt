@@ -14,15 +14,15 @@ const HeroSide = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        
+
         if (!email.trim()) {
-            toast.error(
-                <CustomToast 
-                    type="error" 
-                    title="Email Required" 
+            toast.custom(() => (
+                <CustomToast
+                    variant="error"
+                    title="Email Required"
                     description="Please enter your email address to join the waitlist."
                 />
-            )
+            ))
             return
         }
 
@@ -40,31 +40,31 @@ const HeroSide = () => {
             const data = await response.json()
 
             if (response.ok) {
-                toast.success(
-                    <CustomToast 
-                        type="success" 
-                        title="Welcome to Teleceipt!" 
+                toast.custom(() => (
+                    <CustomToast
+                        variant="success"
+                        title="Welcome to Teleceipt!"
                         description={data.message}
                     />
-                )
+                ))
                 setEmail("")
             } else {
-                toast.error(
-                    <CustomToast 
-                        type="error" 
-                        title="Failed to join waitlist" 
+                toast.custom(() => (
+                    <CustomToast
+                        variant="error"
+                        title="Failed to join waitlist"
                         description={data.error}
                     />
-                )
+                ))
             }
         } catch (error) {
-            toast.error(
-                <CustomToast 
-                    type="error" 
-                    title="Connection Error" 
+            toast.custom(()=>(
+                <CustomToast
+                    variant="error"
+                    title="Connection Error"
                     description="Something went wrong. Please try again."
                 />
-            )
+            ))
         } finally {
             setIsLoading(false)
         }

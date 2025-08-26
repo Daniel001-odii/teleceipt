@@ -1,11 +1,6 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-dotenv.config();
 
-
-const MONGODB_URI = "mongodb://127.0.0.1:27017/teleceipt"
-
-console.log("found mongo: ", MONGODB_URI)
+const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
@@ -27,7 +22,7 @@ async function connectDB() {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts);
+    cached.promise = mongoose.connect(MONGODB_URI as string, opts);
   }
 
   try {
