@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/telegram.png",
+        url: "/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Teleceipt preview",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     description:
       "Generate beautiful, compliant receipts from Telegram payments. Save, manage, and share receipts instantly.",
     creator: "@teleceipt",
-    images: ["/images/telegram.png"],
+    images: ["/images/og-image.png"],
   },
   icons: {
     icon: "/favicon.ico",
