@@ -43,7 +43,7 @@ const HeroSide = () => {
                 toast.custom(() => (
                     <CustomToast
                         variant="success"
-                        title="Welcome to Teleceipt!"
+                        title="Hurray!"
                         description={data.message}
                     />
                 ))
@@ -51,8 +51,8 @@ const HeroSide = () => {
             } else {
                 toast.custom(() => (
                     <CustomToast
-                        variant="error"
-                        title="Failed to join waitlist"
+                        variant="info"
+                        title="Oopps..."
                         description={data.error}
                     />
                 ))
@@ -70,7 +70,13 @@ const HeroSide = () => {
         }
     }
     return (
-        <section className="pt-32 px-5 container mx-auto bg-[#229fd922] rounded-4xl">
+        <section
+            className="pt-32 px-5 container mx-auto rounded-4xl"
+            style={{
+                background: "#ffffff",
+                backgroundImage: "linear-gradient(180deg, rgba(255, 255, 255, 1) 44%, rgba(0, 136, 204, 0.91) 100%)"
+            }}
+        >
             <div
                 className="container flex flex-col items-center justify-center gap-4 text-center"
             >

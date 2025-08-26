@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { InfoCircle } from "iconsax-reactjs";
 import { Check, Info, AlertTriangle, Link2, X as XIcon } from "lucide-react";
 
 interface CustomToastProps {
@@ -47,8 +48,8 @@ export function CustomToast({
     gradientFrom = "from-[#5aa5ff]";
     gradientTo = "to-[#2f80ff]";
     iconBgShadow = "shadow-[0_8px_16px_0_rgba(47,128,255,0.25)]";
-    icon = <Link2 className="w-5 h-5 text-white" />;
-    borderColor = "border-[#2f80ff]";
+    icon = <InfoCircle className="w-5 h-5 text-white" />;
+    borderColor = "border-[#90caf9]";
   }
 
   return (
