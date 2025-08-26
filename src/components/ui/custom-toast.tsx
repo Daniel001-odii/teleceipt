@@ -54,7 +54,6 @@ export function CustomToast({
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 flex items-center justify-center",
         "w-full md:w-fit px-4 py-4 text-white",
         bgColor,
         "rounded-2xl flex items-center justify-between gap-4",
