@@ -29,14 +29,14 @@ const KeyFeatures = () => {
         {
             number: "02",
             title: "Multiple templates",
-            description: "Customize professional receipts and invoices with your logo, colors, and essential fields.",
+            description: "Pick from ready-made designs or tweak them with your logo, colors, and key info. Make receipts that look sharp and match your brand. Plus, over 12 templates to start with—easy for any business, from coffee shops to freelancers.",
             image: "/images/phone-6.png",
             imagePosition: "right",
             floatingCard: {
                 title: "Template Gallery",
                 content: (
-                    <div className="mt-3 p-2 bg-gray-50 rounded text-center">
-                        <p className="text-xs text-gray-600">+12 more templates</p>
+                    <div className="mt-3 p-2 bg-blue-500 rounded text-center">
+                        <p className="text-xs text-white">+99 more templates</p>
                     </div>
                 )
             }
@@ -44,7 +44,7 @@ const KeyFeatures = () => {
         {
             number: "03",
             title: "Business Insights",
-            description: "Get clear business insights with easy analytics and reporting.",
+            description: "See your money stats at a glance: How much you earned this month, how many receipts sent, and trends like \"up 23%!\" No spreadsheets needed—just simple reports to help you grow smarter.",
             image: "/images/phone-6.png",
             imagePosition: "left",
             floatingCard: {
@@ -83,7 +83,7 @@ const KeyFeatures = () => {
                     Our features
                 </span>
                 <h2 className="text-4xl md:text-5xl mb-4">
-                    Why Choose Teleceipt?
+                Why You'll Love Teleceipt
                 </h2>
             </div>
 
