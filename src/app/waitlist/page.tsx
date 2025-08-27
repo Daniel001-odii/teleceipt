@@ -2,6 +2,7 @@ import AppHeader from "@/components/AppHeader"
 import HeroSide from "@/components/HeroSide"
 import FeatureIcons from "@/components/FeatureIcons"
 import KeyFeatures from "@/components/KeyFeatures"
+import UseCase from "@/components/UseCase"
 import FAQ from "@/components/FAQ"
 import Footer from "@/components/Footer"
 
@@ -16,6 +17,9 @@ export default function () {
 
             {/* KEY FEATURES */}
             <KeyFeatures/>
+
+            {/* USE CASES */}
+            <UseCase/>
 
             {/* FAQ */}
             <FAQ/>
